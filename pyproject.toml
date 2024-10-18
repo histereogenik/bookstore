@@ -10,7 +10,12 @@ python = "^3.12"
 pytest = "^8.3.3"
 factory-boy = "^3.3.1"
 django = "^5.1.2"
+django-rest-framework = "^0.1.0"
+faker = "^30.6.0"
 
+
+[tool.poetry.group.dev.dependencies]
+pytest-django = "^4.9.0"
 
 [build-system]
 requires = ["poetry-core"]
