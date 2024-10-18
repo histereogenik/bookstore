@@ -28,7 +28,4 @@ def test_order_serializer(create_order):
         'total': 1000
     }
 
-    print("Serialized Data:", serialized_data)
-    print("Expected Data:", expected_data)
-
     assert serialized_data == expected_data
