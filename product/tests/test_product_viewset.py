@@ -21,7 +21,7 @@ class TestProductViewSet(APITestCase):
             price=200.00,
         )
 
-    def test_get_all_product(self):
+    def test_get_all_products(self):
         response = self.client.get(
             reverse('product-list', kwargs={'version': 'v1'})
         )
@@ -53,3 +53,17 @@ class TestProductViewSet(APITestCase):
 
         self.assertEqual(created_product.title, 'notebook')
         self.assertEqual(created_product.price, 800.00)
+
+    def test_delete_product(self):
+        product_id = self.product.id
+
+        response = self.client.delete(
+            reverse('product-detail', kwargs={'version': 'v1', 'pk': product_id})
+        )
+
+        # import pdb; pdb.set_trace()
+        
+        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
+        
+        with self.assertRaises(Product.DoesNotExist):
+            Product.objects.get(id=product_id)
