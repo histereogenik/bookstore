@@ -60,8 +60,6 @@ class TestOrderViewSet(APITestCase):
 
         order_data = json.loads(response.content)
 
-        # import pdb; pdb.set_trace()
-
         self.assertIn('product', order_data)
         self.assertEqual(order_data['total'], 100)
         self.assertEqual(order_data['user'], self.order.user.id)

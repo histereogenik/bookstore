@@ -44,6 +44,8 @@ class TestProductViewSet(APITestCase):
 
         product_data = json.loads(response.content)
 
+        # import pdb; pdb.set_trace()
+
         self.assertEqual(product_data['title'], self.product.title)
         self.assertEqual(product_data['price'], self.product.price)
 
