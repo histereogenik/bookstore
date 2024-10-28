@@ -48,3 +48,20 @@ class TestOrderViewSet(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
 
         created_order = Order.objects.get(user=user)
+
+    def test_get_order(self):
+        order_id = self.order.id
+
+        response = self.client.get(
+            reverse('order-detail', kwargs={'version': 'v1', 'pk': order_id})
+        )
+
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+        order_data = json.loads(response.content)
+
+        # import pdb; pdb.set_trace()
+
+        self.assertIn('product', order_data)
+        self.assertEqual(order_data['total'], 100)
+        self.assertEqual(order_data['user'], self.order.user.id)
