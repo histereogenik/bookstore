@@ -16,7 +16,7 @@ jobs:
       db:
         image: postgres:13
         ports:
-          - 5433:5432
+          - 5434:5432
         env:
           POSTGRES_USER: bookstore_dev
           POSTGRES_PASSWORD: bookstore_dev
