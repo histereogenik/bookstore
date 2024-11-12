@@ -26,9 +26,14 @@ jobs:
         shell: bash
         run: python -m poetry install
 
+      - name: Install python-dotenv
+        run: |
+          poetry add python-dotenv
+
       - name: Test
         run: |
-          poetry run python manage.py test
+          python -m dotenv run poetry run python manage.py test
+
       - name: Wemake Python Stylguide
         uses: wemake-services/wemake-python-styleguide@0.16.0
         continue-on-error: true
