@@ -28,7 +28,7 @@ jobs:
 
       - name: Test
         run: |
-          python -m dotenv run poetry run python manage.py test
+          python -c 'from dotenv import load_dotenv; load_dotenv("../../env.dev")' && poetry run python manage.py test
 
       - name: Wemake Python Stylguide
         uses: wemake-services/wemake-python-styleguide@0.16.0
