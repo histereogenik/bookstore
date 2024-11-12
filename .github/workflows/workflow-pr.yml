@@ -28,7 +28,6 @@ jobs:
 
       - name: Install python-dotenv
         run: |
-          poetry add python-dotenv
           poetry add python-dotenv[cli]
 
       - name: Test
