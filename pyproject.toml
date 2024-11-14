@@ -16,6 +16,10 @@ django-extensions = "^3.2.3"
 django-debug-toolbar = "^4.4.6"
 psycopg2-binary = "^2.9.10"
 flake8 = "^7.1.1"
+python-dotenv = {extras = ["cli"], version = "^1.0.1"}
+gitpython = "^3.1.43"
+whitenoise = "^6.8.2"
+gunicorn = "^23.0.0"
 
 
 [tool.poetry.group.dev.dependencies]
